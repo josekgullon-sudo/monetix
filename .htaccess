@@ -49,14 +49,31 @@ ErrorDocument 404 /404.html
 # ---------- Caché del navegador ----------
 <IfModule mod_expires.c>
   ExpiresActive On
+
+  # Los recursos estáticos se piden con ?v= en el HTML, así que se pueden
+  # guardar mucho tiempo: al cambiar la versión, la URL cambia y el navegador
+  # vuelve a descargarlos.
   ExpiresByType text/css                "access plus 1 year"
   ExpiresByType application/javascript  "access plus 1 year"
-  ExpiresByType image/svg+xml           "access plus 1 year"
   ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
   ExpiresByType image/webp              "access plus 1 year"
   ExpiresByType image/jpeg              "access plus 1 year"
   ExpiresByType image/png               "access plus 1 year"
-  ExpiresByType text/html               "access plus 1 hour"
+
+  # El HTML nunca se guarda: es lo que decide qué versión de los recursos se
+  # pide. Si se cachea, los cambios tardan en verse y aparecen listados de
+  # directorio obsoletos.
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|woff2|svg|png|jpg|jpeg|webp)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 </IfModule>
 
 # ---------- Cabeceras de seguridad ----------

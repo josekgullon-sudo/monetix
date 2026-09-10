@@ -80,6 +80,20 @@ A partir de aquí, publicar un cambio son esos dos botones.
 
 ---
 
+## Al cambiar el CSS o el JavaScript
+
+Los archivos `styles.css`, `fonts.css` y `main.js` se sirven con una caché de un año, así
+que las páginas los piden con un número de versión: `styles.css?v=2`. Si se edita cualquiera
+de los tres **hay que subir ese número** o los visitantes que ya conocen la web seguirán
+viendo la versión antigua.
+
+```bash
+# Pasar de v=2 a v=3 en todas las páginas de una vez
+sed -i 's/?v=2"/?v=3"/g' *.html
+```
+
+El HTML, en cambio, se sirve sin caché: los cambios de texto se ven al instante.
+
 ## Flujo de trabajo habitual
 
 ```bash
