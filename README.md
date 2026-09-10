@@ -96,9 +96,8 @@ Y después, en cPanel: *Update from Remote* → *Deploy HEAD Commit*.
 
 Estos puntos necesitan datos que solo tú tienes. Están marcados en el código con `[COMPLETAR: ...]`:
 
-- **Datos societarios** de la LLC (denominación, EIN, domicilio, jurisdicción) en
-  `aviso-legal.html` y `privacidad.html`.
-- **Proveedor de hosting** como encargado de tratamiento, en `privacidad.html`.
+- **Proveedor de hosting** como encargado de tratamiento, en `privacidad.html`. Es el único
+  `[COMPLETAR]` que queda: la empresa a la que se contrató el alojamiento.
 - **Certificado SSL**: la redirección a HTTPS del `.htaccess` viene **desactivada** a
   propósito, para no mandar a los visitantes a un aviso de seguridad mientras no haya
   certificado. Cuando cPanel → SSL/TLS Status muestre el dominio con certificado válido,
