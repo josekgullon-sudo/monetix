@@ -2,13 +2,12 @@
 # =============================================================
 # Despliegue automático de Monetix Digital en cPanel
 #
-# IMPORTANTE: sustituye USUARIO por tu nombre de usuario de cPanel
-# (lo ves arriba a la derecha del panel, en "Información general").
-# La ruta debe quedar así: /home/tuusuario/public_html
+# La ruta de destino es la carpeta pública del hosting.
+# Usuario de cPanel: dwlcbdxm
 # =============================================================
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/USUARIO/public_html
+    - export DEPLOYPATH=/home/dwlcbdxm/public_html
 
     # Nos aseguramos de que existan las carpetas de destino
     - /bin/mkdir -p $DEPLOYPATH/assets/css

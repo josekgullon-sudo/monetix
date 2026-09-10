@@ -39,7 +39,7 @@ En cPanel: **Files → Git™ Version Control → Create**.
 |---|---|
 | Clone a Repository | activado |
 | Clone URL | `https://github.com/josekgullon-sudo/monetix.git` |
-| Repository Path | `/home/USUARIO/repositories/monetix` |
+| Repository Path | `/home/dwlcbdxm/repositories/monetix` |
 | Repository Name | `monetix` |
 
 > Si el repositorio es privado, cPanel pedirá credenciales. La forma limpia es generar una
@@ -49,15 +49,18 @@ En cPanel: **Files → Git™ Version Control → Create**.
 **Importante:** el repositorio se clona en `repositories/`, **no** en `public_html`. El paso
 de copiar los archivos al sitio público lo hace `.cpanel.yml`.
 
-### 2. Ajustar la ruta de despliegue
+cPanel clona y deja activa la rama por defecto del repositorio. Ahora mismo es
+`claude/monetix-digital-web-tu9b0v`, que es la que contiene la web.
 
-Abre `.cpanel.yml` y sustituye `USUARIO` por tu usuario real de cPanel en esta línea:
+### 2. Ruta de despliegue
+
+Ya está configurada en `.cpanel.yml` con el usuario de cPanel de esta cuenta:
 
 ```yaml
-- export DEPLOYPATH=/home/USUARIO/public_html
+- export DEPLOYPATH=/home/dwlcbdxm/public_html
 ```
 
-Confirma el nombre en cPanel, en el panel derecho de "Información general".
+Si algún día cambias de hosting o de cuenta, esa es la única línea que hay que tocar.
 
 ### 3. Configurar el correo del formulario
 
@@ -82,7 +85,7 @@ A partir de aquí, publicar un cambio son esos dos botones.
 ```bash
 git add .
 git commit -m "Cambio en la sección de servicios"
-git push origin main
+git push origin claude/monetix-digital-web-tu9b0v
 ```
 
 Y después, en cPanel: *Update from Remote* → *Deploy HEAD Commit*.
