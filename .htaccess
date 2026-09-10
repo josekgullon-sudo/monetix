@@ -76,6 +76,17 @@ ErrorDocument 404 /404.html
   </FilesMatch>
 </IfModule>
 
+# ---------- Caché del servidor ----------
+# La portada llegó a quedarse guardada en la caché del servidor mostrando un
+# listado de directorio anterior al despliegue, mientras /index.html cargaba
+# bien. Se le indica explícitamente que no guarde la raíz ni el HTML.
+# Si el servidor no es LiteSpeed, el bloque se ignora sin efecto.
+<IfModule LiteSpeed>
+  CacheDisable public /
+  RewriteEngine On
+  RewriteRule \.(html)?$ - [E=Cache-Control:no-cache]
+</IfModule>
+
 # ---------- Cabeceras de seguridad ----------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
