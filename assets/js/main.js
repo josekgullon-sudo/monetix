@@ -133,7 +133,7 @@
   if (form) {
     var status = document.getElementById('formStatus');
     var submitBtn = document.getElementById('submitBtn');
-    var MAIL = 'hola@monetixdigital.com';
+    var MAIL = 'info@monetix-digital.com';
 
     var setStatus = function (message, type) {
       status.textContent = message;

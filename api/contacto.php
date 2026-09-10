@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-const DESTINATARIO   = 'hola@monetixdigital.com';
+const DESTINATARIO   = 'info@monetix-digital.com';
 // El remitente debe ser una cuenta del propio dominio o el correo acabará en spam.
-const REMITENTE      = 'no-reply@monetixdigital.com';
+const REMITENTE      = 'no-reply@monetix-digital.com';
 const REMITENTE_NOMBRE = 'Web Monetix Digital';
 // Copia de seguridad de cada solicitud, por si falla el correo. Vacío para desactivar.
 const LOG_FILE       = __DIR__ . '/../.data/solicitudes.log';
@@ -89,7 +89,7 @@ $ip    = $_SERVER['REMOTE_ADDR'] ?? 'desconocida';
 $asunto = sprintf('Nueva solicitud de diagnóstico: %s (%s)', $clinica, $ciudad);
 
 $cuerpo = <<<TEXTO
-Nueva solicitud desde monetixdigital.com
+Nueva solicitud desde monetix-digital.com
 
 Nombre:    {$nombre}
 Clínica:   {$clinica}

@@ -5,4 +5,4 @@ Disallow: /aviso-legal.html
 Disallow: /privacidad.html
 Disallow: /cookies.html
 
-Sitemap: https://monetixdigital.com/sitemap.xml
+Sitemap: https://monetix-digital.com/sitemap.xml

@@ -64,8 +64,8 @@ Si algún día cambias de hosting o de cuenta, esa es la única línea que hay q
 
 ### 3. Configurar el correo del formulario
 
-1. En cPanel crea la cuenta **hola@monetixdigital.com** (Email → Email Accounts).
-2. Crea también **no-reply@monetixdigital.com**: es la dirección desde la que sale el correo.
+1. En cPanel crea la cuenta **info@monetix-digital.com** (Email → Email Accounts).
+2. Crea también **no-reply@monetix-digital.com**: es la dirección desde la que sale el correo.
    Si el remitente no pertenece al dominio, los mensajes acaban en spam.
 3. Si prefieres otras direcciones, cámbialas en las constantes de `api/contacto.php`.
 
@@ -101,7 +101,8 @@ Estos puntos necesitan datos que solo tú tienes. Están marcados en el código 
 - **Proveedor de hosting** como encargado de tratamiento, en `privacidad.html`.
 - **Certificado SSL** activo en cPanel antes de que la redirección a HTTPS del `.htaccess`
   tenga sentido. Con AutoSSL suele instalarse solo.
-- **Cuenta de correo** `hola@` y `no-reply@` creadas en el hosting.
+- **Cuentas de correo** `info@monetix-digital.com` y `no-reply@monetix-digital.com`
+  creadas en el hosting.
 
 Comprueba que no queda ninguno:
 
