@@ -80,6 +80,14 @@ A partir de aquí, publicar un cambio son esos dos botones.
 
 ---
 
+## Direcciones de las páginas
+
+Cada página tiene una única dirección, sin extensión: `/`, `/aviso-legal`, `/privacidad`,
+`/cookies`. Las versiones con `.html` redirigen con un 301 a la limpia, así que los enlaces
+antiguos y los resultados de Google siguen funcionando sin duplicar contenido.
+
+Los enlaces internos deben escribirse siempre en la forma limpia (`href="/privacidad"`).
+
 ## Al cambiar el CSS o el JavaScript
 
 Los archivos `styles.css`, `fonts.css` y `main.js` se sirven con una caché de un año, así

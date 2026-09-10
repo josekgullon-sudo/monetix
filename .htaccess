@@ -32,7 +32,18 @@ ErrorDocument 404 /404.html
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
   # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
-  # URLs limpias: /privacidad en vez de /privacidad.html
+  # Una sola dirección por página. Quien llegue a /privacidad.html (un enlace
+  # antiguo, un resultado de Google) se redirige a /privacidad, y /index.html
+  # a la raíz. Se comprueba THE_REQUEST, que guarda la petición original, para
+  # que la reescritura interna de más abajo no vuelva a disparar la regla y
+  # entre en bucle.
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # URLs limpias: /privacidad sirve internamente privacidad.html
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]
