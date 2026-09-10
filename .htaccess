@@ -2,6 +2,11 @@
 # Monetix Digital — configuración de Apache
 # =============================================================
 
+# ---------- Página por defecto de cada carpeta ----------
+# Sin esto, algunos servidores muestran el listado de archivos al entrar en "/"
+# en lugar de abrir la portada.
+DirectoryIndex index.html index.php
+
 # ---------- Página de error propia ----------
 ErrorDocument 404 /404.html
 
@@ -9,19 +14,23 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Forzar HTTPS. Actívalo cuando el certificado SSL esté instalado en cPanel.
-  RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  # Forzar HTTPS.
+  # DESACTIVADO a propósito: hasta que AutoSSL no haya emitido el certificado,
+  # esta redirección llevaría a los visitantes a un aviso de seguridad.
+  # Comprueba cPanel -> SSL/TLS Status y, cuando el dominio aparezca con
+  # certificado válido, quita la almohadilla de estas tres líneas.
+  # RewriteCond %{HTTPS} !=on
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Unificar dominio sin www. Si prefieres con www, comenta este bloque
-  # y descomenta el siguiente.
+  # Unificar el dominio sin www. Se mantiene en http:// para no forzar HTTPS
+  # antes de tiempo; cuando actives el bloque de arriba, cambia http por https.
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-  # Unificar dominio con www:
+  # Unificar el dominio con www:
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
-  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
   # URLs limpias: /privacidad en vez de /privacidad.html
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -66,5 +75,9 @@ ErrorDocument 404 /404.html
 # Carpeta con la copia de las solicitudes del formulario
 RedirectMatch 403 ^/\.data/
 
-# Sin listado de directorios
+# Sin listado de directorios. Se usan las dos formas porque cada una depende
+# de un permiso distinto del servidor y no siempre están ambas disponibles.
+<IfModule mod_autoindex.c>
+  IndexIgnore *
+</IfModule>
 Options -Indexes

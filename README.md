@@ -99,8 +99,11 @@ Estos puntos necesitan datos que solo tú tienes. Están marcados en el código 
 - **Datos societarios** de la LLC (denominación, EIN, domicilio, jurisdicción) en
   `aviso-legal.html` y `privacidad.html`.
 - **Proveedor de hosting** como encargado de tratamiento, en `privacidad.html`.
-- **Certificado SSL** activo en cPanel antes de que la redirección a HTTPS del `.htaccess`
-  tenga sentido. Con AutoSSL suele instalarse solo.
+- **Certificado SSL**: la redirección a HTTPS del `.htaccess` viene **desactivada** a
+  propósito, para no mandar a los visitantes a un aviso de seguridad mientras no haya
+  certificado. Cuando cPanel → SSL/TLS Status muestre el dominio con certificado válido,
+  descomenta las tres líneas del bloque "Forzar HTTPS" y cambia `http://` por `https://`
+  en la regla que unifica el dominio sin www.
 - **Cuentas de correo** `info@monetix-digital.com` y `no-reply@monetix-digital.com`
   creadas en el hosting.
 
