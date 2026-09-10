@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <circle cx="1080" cy="90" r="300" fill="#0EB5A0" opacity="0.10"/>
+  <circle cx="90" cy="560" r="220" fill="#0EB5A0" opacity="0.07"/>
+  <g transform="translate(90 88)">
+    <rect width="64" height="64" rx="18" fill="#0EB5A0"/>
+    <path d="M16 44V23l10 10.4L36 23v21" stroke="#fff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M43 44V28m0 0 6 6m-6-6-6 6" stroke="#fff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="82" y="43" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#0E1F1C">Monetix<tspan fill="#0EB5A0"> Digital</tspan></text>
+  </g>
+  <text x="90" y="290" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="70" font-weight="700" fill="#0E1F1C" letter-spacing="-2">Si tu clínica no factura</text>
+  <text x="90" y="372" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="70" font-weight="700" fill="#0E1F1C" letter-spacing="-2">más, <tspan fill="#0EB5A0">no nos pagas</tspan>.</text>
+  <text x="90" y="452" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="30" font-weight="400" fill="#5F7370">Marketing de resultados para clínicas dentales y estética.</text>
+  <g transform="translate(90 508)">
+    <rect width="330" height="56" rx="28" fill="#0EB5A0"/>
+    <text x="165" y="36" text-anchor="middle" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="22" font-weight="500" fill="#ffffff">30% del incremento. Nada más.</text>
+  </g>
+  <text x="90" y="604" font-family="Poppins,Helvetica,Arial,sans-serif" font-size="24" fill="#5F7370">monetixdigital.com</text>
+</svg>

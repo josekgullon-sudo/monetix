@@ -1,0 +1,37 @@
+---
+# =============================================================
+# Despliegue automático de Monetix Digital en cPanel
+#
+# IMPORTANTE: sustituye USUARIO por tu nombre de usuario de cPanel
+# (lo ves arriba a la derecha del panel, en "Información general").
+# La ruta debe quedar así: /home/tuusuario/public_html
+# =============================================================
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/USUARIO/public_html
+
+    # Nos aseguramos de que existan las carpetas de destino
+    - /bin/mkdir -p $DEPLOYPATH/assets/css
+    - /bin/mkdir -p $DEPLOYPATH/assets/js
+    - /bin/mkdir -p $DEPLOYPATH/assets/img
+    - /bin/mkdir -p $DEPLOYPATH/assets/fonts
+    - /bin/mkdir -p $DEPLOYPATH/api
+
+    # Páginas
+    - /bin/cp index.html $DEPLOYPATH/
+    - /bin/cp aviso-legal.html $DEPLOYPATH/
+    - /bin/cp privacidad.html $DEPLOYPATH/
+    - /bin/cp cookies.html $DEPLOYPATH/
+    - /bin/cp 404.html $DEPLOYPATH/
+
+    # Configuración y SEO
+    - /bin/cp .htaccess $DEPLOYPATH/
+    - /bin/cp robots.txt $DEPLOYPATH/
+    - /bin/cp sitemap.xml $DEPLOYPATH/
+
+    # Recursos estáticos y backend del formulario
+    - /bin/cp -R assets/css/. $DEPLOYPATH/assets/css/
+    - /bin/cp -R assets/js/. $DEPLOYPATH/assets/js/
+    - /bin/cp -R assets/img/. $DEPLOYPATH/assets/img/
+    - /bin/cp -R assets/fonts/. $DEPLOYPATH/assets/fonts/
+    - /bin/cp -R api/. $DEPLOYPATH/api/
